@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://your.website`,
-    name: `Your Name`,
+    siteUrl: `https://localhost:8000`,
+    name: `CS Kim`,
     role: `Developer at Company`,
-    bio: `My short bio that I will use to introduce myself.`,
+    bio: `Just do it developer`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-bio`,
+        path: `${__dirname}/MD/bio`,
+      },
+    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,8 +21,7 @@ module.exports = {
         path: `${__dirname}/MDX`,
       },
     },
-    `gatsby-plugin-mdx`,
-    `gatsby-plugin-image`,
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-prismic',
       options: {
@@ -24,6 +31,8 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-mdx',
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-styled-components`,
   ],
 }
