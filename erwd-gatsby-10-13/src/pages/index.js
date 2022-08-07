@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { useTranslation } from 'react-i18next'
+import { LocalizedLink } from 'gatsby-theme-i18n'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout/Layout'
 import Seo from '../components/layout/Seo'
 
 export default function Index({ data }) {
+  const { t } = useTranslation('globals')
   const {
     site: {
       siteMetadata: { name, role },
@@ -20,9 +23,9 @@ export default function Index({ data }) {
             <div>
               <h1 className='text-4xl md:text-6xl font-bold text-black pb-4'>{name}</h1>
               <p className='mb-4'>{role}</p>
-              <Link to='/about' className='btn'>
-                About me
-              </Link>
+              <LocalizedLink to='/about' className='btn'>
+                {t('aboutMe')}
+              </LocalizedLink>
             </div>
           </div>
           <div className='flex justify-center'>

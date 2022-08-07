@@ -11,6 +11,7 @@ export default function About({ data }) {
         photo: { localFile },
       },
     },
+    gitHubContributions: { totalContributions },
   } = data
   const profileImage = getImage(localFile)
   return (
@@ -18,6 +19,9 @@ export default function About({ data }) {
       <div className='max-w-5xl mx-auto py-16 lg:py-24 text-center'>
         <GatsbyImage image={profileImage} alt='Your alt text' className='mx-auto max-w-sm' />
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
+        <p>
+          In the last year I have made <b>{totalContributions}</b> on Github.
+        </p>
       </div>
     </Layout>
   )
@@ -38,6 +42,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    gitHubContributions {
+      totalContributions
     }
   }
 `

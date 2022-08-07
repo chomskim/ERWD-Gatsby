@@ -1,4 +1,5 @@
 import React from 'react'
+import { LocalizedLink } from 'gatsby-theme-i18n'
 
 const Footer = () => (
   <footer className='px-2 border-t w-full max-w-5xl mx-auto py-4'>
@@ -19,7 +20,7 @@ const Footer = () => (
           />
           <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' />
         </svg>
-        <p>London, UK</p>
+        <p>Seoul, KR</p>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           className='h-5 w-5'
@@ -35,10 +36,18 @@ const Footer = () => (
           />
         </svg>
       </div>
-
       <div className='flex items-center'>
         <p>cs kim</p>
       </div>
+      <LocalizedLink to='/' language='en' className='text-blue-400 text-xs'>
+        English
+      </LocalizedLink>
+      <LocalizedLink to='/' language='ko' className='text-blue-400 text-xs'>
+        Korean
+      </LocalizedLink>
+      <LocalizedLink to='/' language='fr' className='text-blue-400 text-xs'>
+        Francais
+      </LocalizedLink>{' '}
     </div>
   </footer>
 )

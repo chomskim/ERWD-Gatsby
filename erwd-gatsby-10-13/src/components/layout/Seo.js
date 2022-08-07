@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default function SEO({ description, lang = 'en', title }) {
+export default function Seo({ description, lang = 'en', title }) {
   const {
     site: {
       siteMetadata: {

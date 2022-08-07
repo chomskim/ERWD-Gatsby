@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.kimandhwang.com/`,
@@ -9,6 +13,38 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: 'gatsby-theme-i18n-react-i18next',
+      options: {
+        locales: './i18n/locales',
+        i18nextOptions: {
+          ns: ['globals'],
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-theme-i18n',
+      options: {
+        defaultLang: 'en',
+        configPath: require.resolve('./i18n/config.json'),
+      },
+    },
+    {
+      resolve: 'gatsby-theme-i18n-react-i18next',
+      options: {
+        locales: './i18n/locales',
+        i18nextOptions: {
+          ns: ['globals'],
+        },
+      },
+    },
+    'gatsby-theme-sample-page',
+    {
+      resolve: `gatsby-theme-events-section`,
+      options: {
+        path: 'test',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,6 +76,13 @@ module.exports = {
           profile: require('./src/schemas/profile.json'),
         },
         shouldDownloadFiles: () => true,
+      },
+    },
+    {
+      resolve: `gatsby-source-github-profile`,
+      options: {
+        token: process.env.GITHUB_PROFILE_BEARER_TOKEN,
+        username: 'chomskim',
       },
     },
     {
